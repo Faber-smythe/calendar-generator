@@ -213,7 +213,7 @@ footer {
     margin: 0;
   }
   .controls,
-  .calendar-seam {
+  .calendar-seam, footer {
     display: none !important;
   }
 
