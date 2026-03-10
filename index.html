@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <form class="controls" id="controls">
+    <section>
+      <div>
+
+        <label for="month">Mois :</label>
+        <select id="month">
+          <option value="1">janvier</option>
+          <option value="2">février</option>
+          <option value="3">mars</option>
+          <option value="4">avril</option>
+          <option value="5">mai</option>
+          <option value="6">juin</option>
+          <option value="7">juillet</option>
+          <option value="8">août</option>
+          <option value="9">septembre</option>
+          <option value="10">octobre</option>
+          <option value="11">novembre</option>
+          <option value="12">décembre</option>
+        </select>
+      </div>
+      <div>
+        <label for="year">Year:</label>
+        <input type="number" id="year" min="1900" max="2100" value="2026">
+      </div>
+    </section>
+    <section>
+      <div>
+        <label>Coloc 1:</label>
+        <input type="text" id="rm1" maxlength="20" value="Camille">
+      </div>
+      <div>
+        <label>Coloc 2:</label>
+        <input type="text" id="rm2" maxlength="20" value="Charles">
+      </div>
+      <div>
+        <label>Coloc 3:</label>
+        <input type="text" id="rm3" maxlength="20" value="Chloé">
+      </div>
+      <div>
+        <label>Coloc 4:</label>
+        <input type="text" id="rm4" maxlength="20" value="Johann">
+      </div>
+    </section>
+    <section>
+      <button type="button" id="generate">Roll weekend colours</button> 
+      <button type="button" id="print">Print</button>
+    </section>
+  </form>
+
+  <div id="calendar-output"></div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

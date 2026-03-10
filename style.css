@@ -1,0 +1,226 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: #333;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.controls {
+  position:relative;
+  display: flex;
+  justify-content: space-around;
+  padding: 32px 24px 24px 24px;
+  background: #23272f;
+  border-bottom: 1px solid #444;
+  align-items: flex-end;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.controls section > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.controls section {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: center;
+}
+.controls .field {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  flex: 1 1 120px;
+}
+.controls label {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+.controls input[type="number"],
+.controls input[type="text"],
+.controls select {
+  margin: 4px 12px;
+  padding: 8px 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background: #f7f7fa;
+  color: #23272f;
+  font-size: 16px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.controls input[type="number"]:focus,
+.controls input[type="text"]:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+.controls .button-group {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+.controls button,
+#generate {
+  padding: 10px 28px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 44px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  margin-top: 0;
+}
+#print,
+#generate {
+  background: #e0e0e0;
+  color: #23272f;
+  box-shadow: 0 2px 8px #bbb3;
+  margin: 10px;
+}
+#print:hover,
+#generate:hover {
+  background: #bdbdbd;
+}
+
+/* Inputs and labels are styled above */
+.calendar-container {
+  height: 420mm;
+  width: 297mm;
+  margin: 24px auto;
+  background: #fff;
+  box-shadow: 0 0 8px #bbb;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: visible;
+}
+.calendar-title:first-of-type {
+  top: 105mm;
+}
+.calendar-title:not(:first-of-type) {
+  top: 315mm;
+}
+.calendar-title {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 0px;
+  rotate: -13deg;
+  opacity: 0.12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8em;
+  margin: 18px 0 12px 0;
+  font-weight: bold;
+}
+.calendar-table {
+  width: calc(100% - 10mm);
+  margin: 5mm auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  flex: 1;
+  font-size: 1.1em;
+}
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid #ccc;
+  padding: 0;
+  height: calc((297mm - 80px) / 31);
+  text-align: center;
+  background: #fff;
+}
+.calendar-table th {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2.5rem;
+  font-family: "Jokerman", Arial, sans-serif;
+}
+.calendar-table .weekend {
+  background-color: hsl(var(--weekend-hue, 200), 40%, 88%) !important;
+}
+.calendar-table tbody td {
+  text-transform: capitalize;
+}
+.calendar-table .weekend td {
+  background-color: hsl(var(--weekend-hue, 200), 40%, 88%) !important;
+}
+.calendar-table td span {
+  margin: 0 8px;
+}
+.calendar-table td > div {
+  display: flex;
+  justify-content: space-between;
+}
+.calendar-table th {
+  border-bottom: 3px solid grey;
+}
+.calendar-table td:first-child,
+th:first-child {
+  border-right: 3px solid grey;
+}
+.calendar-table td:first-child {
+  font-weight: bold;
+}
+.calendar-table tr {
+  page-break-inside: avoid;
+}
+.calendar-seam {
+  position: absolute;
+  left: 0;
+  top: 210mm;
+  width: 100%;
+  height: 0;
+  border-top: 2px dashed red;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: "Jokerman";
+  src: url("jokerman.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media print {
+  body {
+    background: #fff;
+    margin: 0;
+  }
+  .controls,
+  .calendar-seam {
+    display: none !important;
+  }
+
+  .calendar-container {
+    box-shadow: none;
+    margin: 0;
+  }
+  thead {
+    display: table-row-group;
+  }
+  .weekend,
+  .weekend * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+}
