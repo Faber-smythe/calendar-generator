@@ -12,7 +12,7 @@ button {
 }
 
 .controls {
-  position:relative;
+  position: relative;
   display: flex;
   justify-content: space-around;
   padding: 32px 24px 24px 24px;
@@ -187,6 +187,17 @@ th:first-child {
   border-top: 2px dashed red;
   opacity: 0.4;
   pointer-events: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 12px;
+  background: #23272f;
+  color: rgb(207, 207, 207);
+  text-align: center;
+  font-size: .65rem;
 }
 
 @font-face {
